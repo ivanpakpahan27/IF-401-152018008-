@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player_Movement : MonoBehaviour
 {
     // Variabel
-    [SerializeField] private float kecepatan;
+    [SerializeField] public float kecepatan;
     public float x;
     public float z;
     [SerializeField] private float speed_jump = 3f;
