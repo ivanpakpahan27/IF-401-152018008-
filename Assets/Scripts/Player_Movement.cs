@@ -8,9 +8,9 @@ public class Player_Movement : MonoBehaviour
     [SerializeField] public float kecepatan;
     public float x;
     public float z;
-    [SerializeField] private float speed_jump = 3f;
+    [SerializeField] private float speed_jump = 10f;
     [SerializeField] private float speed_jalan = 3f;
-    [SerializeField] private float speed_lari = 7f;
+    [SerializeField] public float speed_lari = 7f;
     [SerializeField] private float gravitasi = -50f;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private float groundDistance = 0.4f;
@@ -58,7 +58,7 @@ public class Player_Movement : MonoBehaviour
     {
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            velocity.y = Mathf.Sqrt(speed_jump * -2f * gravitasi);
+            velocity.y = Mathf.Sqrt(speed_jump * -3f * gravitasi);
         }
         velocity.y += gravitasi * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
@@ -68,11 +68,11 @@ public class Player_Movement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            kecepatan = speed_jalan;
+            kecepatan = speed_lari;
         }
         else
         {
-            kecepatan = speed_lari;
+            kecepatan = speed_jalan;
         }
     }
 }
